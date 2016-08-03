@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring objects</title>
+</head>
+<body>
+    <script>
+
+        const { w: width = 400, h: height = 500 } = { w: 800, h: 1000 };
+
+        // The aobve is the same as below
+        const parentObj = {
+            myWidth: 250,
+            myHeight: 310
+        };
+
+        // This is doing it when you already have an object declared
+        // const { myWidth: mw, myHeight: mh } = parentObj
+
+        // This is doing it while also declaring the object
+        // const { myWidth: mw, myHeight: mh } = { myWidth: 250, myHeight: 310 };
+
+        // This is doing it with default values
+        const { myWidth: mw = 99, myHeight: mh = 88 } = { myWidth: 250 };
+
+        console.log('mw: ',mw);
+        console.log('mh: ',mh);
+
+        console.log('width: ',width);
+        console.log('height: ',height);
+    </script>
+</body>
+</html>

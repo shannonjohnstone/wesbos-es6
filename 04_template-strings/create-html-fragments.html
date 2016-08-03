@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create html fragments</title>
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script>
+        const person = {
+            name: 'Shannon',
+            job: 'Web Developer',
+            city: 'Sydney',
+            bio: 'I hate talking about myself, so no bio for you'
+        };
+
+        const markup = `
+            <div class="person">
+                <h2>${person.name}
+                    <span class="job">${person.job}</span>
+                </h2>
+                <p class="location">${person.city}</p>
+                <p class="bio">${person.bio}</p>
+            </div>
+        `;
+
+        document.getElementById('markup-area').innerHTML = markup;
+    </script>
+</body>
+</html>

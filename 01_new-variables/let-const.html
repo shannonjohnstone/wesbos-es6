@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let and const</title>
+</head>
+<body>
+    <script>
+
+        // Example of function scope
+        // ------------------------------------------------------------
+        function setWidth() {
+            var width = 100;
+            console.log(width);
+        }
+        setWidth();
+
+        var age = 100;
+        if (age > 12) {
+            let dogYears = age * 7;
+            console.log(`you are ${dogYears} dog years old`);
+        }
+
+
+        // Example of let
+        // ------------------------------------------------------------
+        let points = 50;
+        let winner = false;
+        if (points > 40) {
+            console.log('this works');
+            let winner = true;
+        }
+
+        let height = 100;
+        const key = 'abc123';
+
+        // Example of const
+        // ------------------------------------------------------------
+        const newObj = {
+            name: 'Shannon',
+            age: 31
+        };
+
+        // you can not re assign a const but you can update like below
+        console.log(newObj);
+        newObj.age = 32;
+        console.log(newObj);
+    </script>
+</body>
+</html>

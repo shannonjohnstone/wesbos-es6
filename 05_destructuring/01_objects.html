@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring objects</title>
+</head>
+<body>
+      
+    <script>
+        const person = {
+            first: 'Shannon',
+            last: 'Johnstone',
+            country: 'Austrlia',
+            city: 'Sydney',
+            twitter: 'hekkno'
+        };
+
+        const { twitter} = person;
+
+        const shannon = {
+            first: 'Shannon',
+            last: 'Johnstone',
+            links: {
+                social: {
+                    twitter: 'hekkno',
+                    facebook: 'shannon.johnstone',
+                },
+                web: {
+                    url: 'http://shannonjohnstone.com.au'
+                }
+            }
+        }
+
+        const { first, last } = shannon;
+        const { facebook:fb, twitter:tweet } = shannon.links.social;
+
+        const settings = {width: 300, color: 'black'}; // height and fontsize
+        const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+        console.log(first, last, fb, twitter, tweet);
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let and const real world</title>
+</head>
+<body>
+    <script>
+
+        // Example of EFFIE for blocking
+        // ------------------------------------------------------------
+        // (function() {
+        //     var name = 'shannon';
+        //     console.log(name);
+        // })();
+
+        // Example without EFFIE
+        // ------------------------------------------------------------
+        {
+            const name = 'shannon';
+            console.log(name);
+        }
+
+        // Example of looping
+        // ------------------------------------------------------------
+
+        // without let
+        // for (var i = 0; i < 10; i++) {
+        //     console.log(i);
+        //     setTimeout(function() {
+        //         console.log('The number is : ', i); // this will be 10 as i is leaked and is global = 10
+        //     }, 1000)
+        // }
+        // console.log('leaked i : ',i);
+
+        // with let
+        for (let a = 0; a < 10; a++) {
+            console.log(a);
+            setTimeout(function() {
+                console.log('The number is : ', a); // this will now be correct
+            }, 1000)
+        }
+        console.log('leaked a : ',a); // this will err now as a is blocked and will not leak
+
+    </script>
+</body>
+</html>

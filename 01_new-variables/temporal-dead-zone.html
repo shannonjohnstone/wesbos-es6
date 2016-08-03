@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temporal Dead Zone</title>
+</head>
+<body>
+    <script>
+        console.log(pizza);
+        // this will be undefined as you can not access the assigned value until after its assigned
+        // so the pizza declaration exists but not its value
+        var pizza = 'Deep Dish';
+
+        console.log(cake);
+        // this will be err as with let and const calling before it will be not defined at all
+        let cake = 'Yum';
+
+    </script>
+</body>
+</html>

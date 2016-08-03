@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template string if</title>
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script>
+        const dog = {
+            name: 'Dustin',
+            owner: 'Shannon',
+            brother: 'Fox'
+        };
+
+        const markup = `
+            <div class="dog">
+                <p>
+                    Name: ${dog.name} - Owner: ${dog.owner}
+                </p>
+                <p>
+                    ${dog.brother ? `(Brother ${dog.brother})` : ''}
+                </p>
+            </div>
+        `;
+        document.body.innerHTML = markup;
+    </script>
+</body>
+</html>

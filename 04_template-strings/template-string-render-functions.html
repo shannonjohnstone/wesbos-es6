@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template string render functions</title>
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script>
+        const beer = {
+            name: 'Murrys Whale Ale',
+            brewery: 'Murrys',
+            keywords: ['pale', 'ale', 'pale ale']
+        };
+
+        function renderKeywords(keywords) {
+            return `
+                <ul>
+                    ${keywords.map(word => `<li>${word}</li>`).join('')}
+                </ul>
+            `;
+        };
+
+        const markup = `
+            <div class="beer">
+                <h2>${beer.name}</h2>
+                <p class="brewery"><strong>Brewery: </strong>${beer.brewery}</p>
+                <p class="brewery">Keywords</p>
+                ${renderKeywords(beer.keywords)}
+            </div>
+        `;
+        document.body.innerHTML = markup;
+    </script>
+</body>
+</html>

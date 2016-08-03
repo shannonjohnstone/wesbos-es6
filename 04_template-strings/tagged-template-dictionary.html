@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Templates - exercise 1</title>
+    <style>
+        .hl {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script>
+        const dict = {
+            HTML: 'Hyper Text Markup Language',
+            CSS: 'Cascading Style Sheets',
+            JS: 'JavaScript',
+        };
+
+        function addHelp(strings, ...values) {
+            const abb = values.map(value => {
+                if (dict[value]) {
+                    return `<abbr title="${dict[value]}">${value}</abbr>`
+                }
+                return value
+            });
+            return strings.reduce((sentence, string, i) => {
+                return `${sentence}${string}${abb[i] || ''}`
+            }, '')
+        }
+
+        const first = 'shannon';
+        const last = 'johnstone';
+
+        const sentence = addHelp`Hello my name is ${first} ${last} and i code ${'HTML'}, ${'CSS'}, ${'JS'}`;
+
+        const markupArea = document.querySelector('#markup-area');
+        const para = document.createElement('p');
+        para.innerHTML = sentence;
+        markupArea.appendChild(para);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Templates sanitize</title>
+    <style>
+        .hl {
+            background: yellow;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
+    <script>
+        function sanitize(strings, ...values) {
+            const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
+            return DOMPurify.sanitize(dirty);
+        }
+        const first = 'Shannon';
+        const about = sanitize`
+            This a sentence that should  be about me.
+            <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked!')" />
+        `;
+
+        const html = `
+            <h3>${first}</h3>
+            <p>${about}</p>
+        `;
+
+        const markupArea = document.querySelector('#markup-area');
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        markupArea.appendChild(div);
+    </script>
+</body>
+</html>

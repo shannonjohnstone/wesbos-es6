@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrow function intro</title>
+</head>
+<body>
+    <h1>Arrow function introl</h1>
+    <script>
+        // You cant name an arrow function but you can assign the arrow function to a variable
+        const names = ['shannon', 'emily', 'fox', 'dustin'];
+        const fullName = names.map(name => `${name} johnstone`);
+        const sayMyName = (name) => { console.log(`Hello ${name}`) };
+
+        // More arrow functions examples
+        const race = '100m Dash';
+        const winners = ['shannon', 'emily', 'fox'];
+
+        const win = winners.map((winner, i) => ({
+            name: winner,
+            race,
+            place: i + 1
+        }));
+
+        const ages = [23, 15, 45, 40, 60, 63];
+
+        const old = ages.filter(age => age >= 60);
+
+        console.log(win);
+        console.log(old);
+        // {
+        //     name: 'dustin',
+        //     place: 1,
+        //     race: race
+        // }
+
+    </script>
+</body>
+</html>

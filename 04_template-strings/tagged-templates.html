@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tagged templates</title>
+    <style>
+        .hl {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="markup-area"></div>
+    <script>
+        function highlight(strings, ...values) {
+            let str = '';
+            strings.forEach((string, i) => {
+                // str += string + (values[i] || '');
+                str += `${string} <span contenteditable class="hl">${values[i] || ''}</span>`;
+            });
+            return str;
+        }
+
+        const name = 'Snickers';
+        const age = 2;
+        const sentence = highlight`My dog ${name} is ${age * 7} years old`;
+
+        console.log(sentence);
+
+        document.body.innerHTML = sentence;
+    </script>
+</body>
+</html>

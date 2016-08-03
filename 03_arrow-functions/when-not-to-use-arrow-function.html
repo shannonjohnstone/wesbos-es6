@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>When not to use arrow function</title>
+</head>
+<body>
+    <style>
+        button { font-size: 100px; }
+        .on { background: #ffc600 }
+    </style>
+
+    <button id="pushy">Push Me</button>
+    <script>
+
+        // when you really need `this` to not be inherited from the parent
+        const button = document.querySelector('#pushy');
+        button.addEventListener('click', function() {
+            this.classList.toggle('on');
+        });
+
+        // when you need a method to bind to an object
+        const person = {
+            points: 23,
+            score() {
+                this.points++
+            }
+        }
+
+        // when you need to use a prootype method
+        class Car {
+            constructor(make, colour) {
+                this.make = make;
+                this.colour = colour;
+            }
+        }
+
+        const beemer = new Car('bmw', 'blue');
+        const subie = new Car('Subaru', 'white');
+
+        Car.prototype.summerize = function() {
+            return `This car ss a ${this.make} in the colour ${this.colour}`
+        }
+
+        // when you need arguments
+        const orderChildren = function() {
+            const children = Array.from(arguments);
+            return children.map((child, i) => {
+                console.log(`${child} was child #${1 + 1}`);
+                return `${child} was child #${1 + 1}`;
+            })
+            console.log(arguments);
+        }
+
+    </script>
+</body>
+</html>
